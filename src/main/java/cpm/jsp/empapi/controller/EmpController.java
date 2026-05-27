@@ -21,7 +21,7 @@ public class EmpController {
     @Autowired
     private EmpService service;
 
-    // ✅ GET ALL
+    
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<EmployeeDTO> getEmployees(
@@ -36,7 +36,7 @@ public class EmpController {
                 .toList();
     }
 
-    // ✅ POST
+    
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public EmployeeDTO saveEmployee(@Valid @RequestBody EmployeeDTO dto) {
@@ -48,7 +48,7 @@ public class EmpController {
         return EmployeeMapper.toDTO(saved);
     }
 
-    // ✅ GET BY ID
+    
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public EmployeeDTO findEmployeebyid(@PathVariable Integer id) {
@@ -58,7 +58,7 @@ public class EmpController {
         );
     }
 
-    // ✅ GET BY NAME
+  
     @GetMapping("/name/{name}")
     @ResponseStatus(HttpStatus.OK)
     public List<EmployeeDTO> findEmployeebyname(@PathVariable String name) {
@@ -69,7 +69,7 @@ public class EmpController {
                 .toList();
     }
 
-    // ✅ GET BY PHONE
+    
     @GetMapping("/phno/{phno}")
     @ResponseStatus(HttpStatus.OK)
     public EmployeeDTO findEmployeebyphno(@PathVariable String phno) {
@@ -79,7 +79,7 @@ public class EmpController {
         );
     }
 
-    // ✅ GET BY DEPARTMENT
+    
     @GetMapping("/department/{dept}")
     @ResponseStatus(HttpStatus.OK)
     public List<EmployeeDTO> findEmployeebydepartment(@PathVariable String dept) {
@@ -90,14 +90,14 @@ public class EmpController {
                 .toList();
     }
 
-    // ✅ DELETE
+    
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteEmployeebyid(@PathVariable Integer id) {
         service.deleteEmployeesbyid(id);
     }
 
-    // ✅ PUT
+    
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public EmployeeDTO putEmployee(@PathVariable Integer id,
@@ -111,7 +111,7 @@ public class EmpController {
         return EmployeeMapper.toDTO(updated);
     }
 
-    // ✅ PATCH
+    
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public EmployeeDTO patchEmployee(@PathVariable Integer id,
